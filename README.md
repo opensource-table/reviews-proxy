@@ -1,6 +1,8 @@
 # Project Name
 
-> Project description
+> Run the FreeSeat app modules through this proxy.
+NOTE: Check the branches. If you want to run the available AWS-hosted services, use "master", if not,
+use "decontainerize" and contact the author of this proxy repo to turn on his service.
 
 ## Related Projects
 
