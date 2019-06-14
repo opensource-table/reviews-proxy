@@ -3,8 +3,8 @@ import { check, sleep } from "k6";
 
 export let options = {
   stages: [
-    {duration: "15s", target: 10},
-    {duration: "15s", target: 10},
+    {duration: "15s", target: 500},
+    {duration: "285s", target: 500},
   ]
 };
 
@@ -38,13 +38,13 @@ export default function() {
       let res = http.post(`http://localhost:3000/${Math.floor(Math.random()*((max-min) + min))}/reviews`, formData, { headers: headers });
       check(res, {
         "status was 201": (r) => r.status == 201,
-        "transaction time OK": (r) => r.timings.duration < 100
+        "transaction time OK": (r) => r.timings.duration < 2000
       });
     } else {
       let res = http.post(`http://localhost:3000/${Math.floor(Math.random())}/reviews`, formData, { headers: headers });
       check(res, {
         "status was 201": (r) => r.status == 201,
-        "transaction time OK": (r) => r.timings.duration < 100
+        "transaction time OK": (r) => r.timings.duration < 2000
       });
     }
     sleep(1);
@@ -54,13 +54,13 @@ export default function() {
       let res = http.get(`http://localhost:3000/${Math.floor(Math.random()*((max-min) + min))}`);
       check(res, {
         "status was 200": (r) => r.status == 200,
-        "transaction time OK": (r) => r.timings.duration < 100
+        "transaction time OK": (r) => r.timings.duration < 2000
       });
     } else {
       let res = http.get(`http://localhost:3000/${Math.floor(Math.random())}`);
       check(res, {
         "status was 200": (r) => r.status == 200,
-        "transaction time OK": (r) => r.timings.duration < 100
+        "transaction time OK": (r) => r.timings.duration < 2000
       });
     }
     sleep(1);
