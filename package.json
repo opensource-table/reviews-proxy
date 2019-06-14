@@ -20,7 +20,8 @@
     "http-proxy-middleware": "^0.19.1"
   },
   "devDependencies": {
-    "eslint": "^5.16.0"
+    "eslint": "^5.16.0",
+    "newrelic": "^5.10.0"
   },
   "bugs": {
     "url": "https://github.com/freeseats/slhodak-proxy/issues"
