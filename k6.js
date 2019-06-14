@@ -35,13 +35,13 @@ export default function() {
 
     let headers = { "Content-Type": "application/x-www-form-urlencoded" }
     if (randNum > 0.8) {
-      let res = http.post(`http://localhost:3000/${Math.floor(Math.random()*((max-min) + min))}`, formData, { headers: headers });
+      let res = http.post(`http://localhost:3000/${Math.floor(Math.random()*((max-min) + min))}/reviews`, formData, { headers: headers });
       check(res, {
         "status was 201": (r) => r.status == 201,
         "transaction time OK": (r) => r.timings.duration < 100
       });
     } else {
-      let res = http.post(`http://localhost:3000/${Math.floor(Math.random())}`, formData, { headers: headers });
+      let res = http.post(`http://localhost:3000/${Math.floor(Math.random())}/reviews`, formData, { headers: headers });
       check(res, {
         "status was 201": (r) => r.status == 201,
         "transaction time OK": (r) => r.timings.duration < 100
