@@ -24,3 +24,5 @@ coverage
 build/
 dist/
 
+# New Relic Config File
+newrelic.js
